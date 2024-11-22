@@ -1,27 +1,40 @@
 # Rock Paper Scissors
 
-- Setup
+- ✅ Setup
   - ✅ Create GitHub repository
   - ✅ Clone repository
   - ✅ `index.html` (blank)
   - ✅ `script.js`
   - ✅ Link `script.js` to `index.html`
 - Gameplay
-  - Get computer choice
-    - `getComputerChoice()` (`Math.random()`)
-    - Randomly return "Rock", "Paper", or "Scissors"
-  - Get user choice
-    - `getHumanChoice()` (`prompt()`)
-  - Store computer & user scores
-    - Calculate score
-    - Store score (`humanScore`, `computerScore`)
-  - Play single round
-    - `playRound()`
-    - Get computer & user choices
-    - Determine winner
-    - Declare winner
-    - Update score
+  - ✅ Get computer choice
+    - ✅ `getComputerChoice()` (`Math.random()`)
+    - ✅ Randomly choose "Rock", "Paper", or "Scissors"
+  - ✅ Get user choice
+    - ✅ `getHumanChoice()` (`prompt()`)
+    - ✅ Validate user input (case-insensitive)
+    - ✅ If user input is invalid, `prompt` again
+  - ✅ Store computer & user scores
+    - ✅ Create score variables (`humanScore`, `computerScore`)
+    - ✅ Initialize scores to 0
+  - ✅ Play single round
+    - ✅ `playRound()`
+    - ✅ Get computer & user choices
+    - ✅ Determine winner
+    - ✅ If draw, re-choose
+    - ✅ Declare winner
+    - ✅ Update score
   - Play game (5 rounds)
-    - `playGame()`
-    - Start new round
-    - End game
+    - ✅ `playGame()`
+    - ✅ Confirm game start
+    - ✅ Start new round
+    - ✅ End game
+    - ✅ Declare final winner
+- Test
+  - ✅ Normal game
+    - ✅ User wins
+    - ✅ Computer wins
+  - ✅ Cancel game
+    - ✅ At the start (`confirm()`)
+  - ✅ Cancel round
+  - ✅ Invalid input

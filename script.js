@@ -1,6 +1,8 @@
 // Gameplay
 
   // Variables
+let gameInProgress = false;
+let round = 0;
 let computerScore = 0;
 let humanScore = 0;
 
@@ -25,15 +27,12 @@ function getComputerChoice() {
 
   // Get user choice
 function getHumanChoice() {
-  let humanChoice = prompt("Choose rock, paper, or scissors.");
+  let humanChoice = prompt(`ROUND ${round}
+
+Choose rock, paper, or scissors.`);
 
   if (humanChoice === null) {
-    if (confirm("Do you want to keep playing?")) {
-      humanChoice = getHumanChoice();
-    } else {
-      console.log("GAME OVER");
-      console.log("Refresh the page to start a new game.");
-    }
+    return gameInProgress = false;
   }
 
   switch (humanChoice.trim().toLowerCase()) {
@@ -56,15 +55,23 @@ function getHumanChoice() {
   // Play a single round
 function playRound() {
   let currentHumanChoice = getHumanChoice();
-  console.log(`You chose ${currentHumanChoice}.`);
-
   let currentComputerChoice = getComputerChoice();
-  console.log(`The computer chose ${currentComputerChoice}.`);
+
+  if (!currentHumanChoice) {
+    return;
+  }
+  console.log(`You chose ${currentHumanChoice}. The computer chose ${currentComputerChoice}.`);
   
   let currentResult = getResult(currentHumanChoice, currentComputerChoice);
-
-  displayResult(currentResult);
-  displayScore();
+  
+  if (currentResult === "draw") {
+    console.log("It's a draw. Go again.");
+    alert("It's a draw. Go again.");
+    playRound();
+  } else {
+    displayResult(currentResult);
+    displayScore();
+  }
 }
 
 function getResult(myChoice, opponentChoice) {
@@ -111,28 +118,35 @@ function displayResult(result) {
 }
 
 function displayScore() {
-  console.log(`Current score
-  You: ${humanScore}, Computer: ${computerScore}`);
+  console.log(`Score - You: ${humanScore}, Computer: ${computerScore}`);
 }
 
   // Play a game
 function playGame() {
-  if (confirm("Play Rock, Paper, Scissors?")) {
-    console.log("ROUND 1");
+  if (confirm("Let's play Rock, Paper, Scissors!")) {
+    gameInProgress = true;
+  }
+  
+  while (gameInProgress && round < 5) {
+    round++;
+    console.log(`
+ROUND ${round}`);
     playRound();
-
-    for (let round = 2; round <= 5; round++) {
-      if (confirm("Play next round?")) {
-        console.log(`ROUND ${round}`);
-        playRound();
-      } else {
-        console.log("GAME OVER");
-        break;
-      }
-    }
   }
 
-  console.log("Refresh the page to start a new game.");
+  if (!gameInProgress) {
+    console.log("GAME OVER");
+    return console.log(`Refresh the page to start a new game.`);
+  }
+
+  if (humanScore > computerScore) {
+    console.log(`
+YOU WIN!`);
+  } else if (humanScore < computerScore) {
+    console.log(`
+THE COMPUTER WINS.`);
+  }
+  console.log(`Refresh the page to start a new game.`);
 }
 
 playGame();
