@@ -1,0 +1,27 @@
+# Rock Paper Scissors
+
+- Setup
+  - ✅ Create GitHub repository
+  - ✅ Clone repository
+  - ✅ `index.html` (blank)
+  - ✅ `script.js`
+  - ✅ Link `script.js` to `index.html`
+- Gameplay
+  - Get computer choice
+    - `getComputerChoice()` (`Math.random()`)
+    - Randomly return "Rock", "Paper", or "Scissors"
+  - Get user choice
+    - `getHumanChoice()` (`prompt()`)
+  - Store computer & user scores
+    - Calculate score
+    - Store score (`humanScore`, `computerScore`)
+  - Play single round
+    - `playRound()`
+    - Get computer & user choices
+    - Determine winner
+    - Declare winner
+    - Update score
+  - Play game (5 rounds)
+    - `playGame()`
+    - Start new round
+    - End game
