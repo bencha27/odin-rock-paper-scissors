@@ -1,0 +1,114 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+
+body {
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+}
+
+button:hover {
+  background-color: gray;
+}
+
+#game-container {
+  width: 800px;
+  height: 600px;
+  padding: 2rem;
+  background-color: lightgray;
+}
+
+header {
+  margin-bottom: 3rem;
+
+  & h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  & p {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+
+/* Start screen */
+#start-screen {
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & #start-button {
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+}
+
+
+/* Game screen */
+#display-score-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+
+  & h2 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  & h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Choice screen */
+#user-choice-container {
+  margin: 2rem 0;
+
+  & h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  & #buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  & button {
+    width: 150px;
+    height: 150px;
+    font-size: 5rem;
+    border-radius: 1rem;
+  }
+}
+
+/* Result screen */
