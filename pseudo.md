@@ -1,5 +1,7 @@
 # Rock Paper Scissors
 
+## Version 1
+
 - ✅ Setup
   - ✅ Create GitHub repository
   - ✅ Clone repository
@@ -38,3 +40,18 @@
     - ✅ At the start (`confirm()`)
   - ✅ Cancel round
   - ✅ Invalid input
+
+## Version 2
+
+- HTML & CSS
+  - Create buttons for user choice
+  - Create a `div` for displaying results
+- JS
+  - Remove playing 5 rounds
+  - Add event listeners to buttons
+    - `playRound`
+    - `playerSelection`
+  - Change `console.log` to DOM methods
+  - Display the running score
+  - End game at 5 points
+  - Announce the winner
