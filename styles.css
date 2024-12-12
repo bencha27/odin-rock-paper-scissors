@@ -112,3 +112,46 @@ header {
 }
 
 /* Result screen */
+#display-result-container {
+  & #display-choices-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+
+    & #display-user-choice-container,
+    #display-computer-choice-container {
+      width: 150px;
+    }
+    
+    & h3 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    
+    & #display-choice {
+      font-size: 5rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+  }
+
+  & #display-result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & #display-result {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    & #continue-button {
+      font-size: 2rem;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+  }
+}
