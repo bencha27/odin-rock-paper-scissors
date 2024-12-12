@@ -45,23 +45,23 @@
 
 - HTML
   - ✅Header
-  - Start screen
-    - Button to start game
+  - ✅Start screen
+    - ✅Button to start game
   - ✅Game screen
     - ✅Round & score
     - ✅Choice screen
       - ✅Buttons for user choice
-    - Result screen
-      - User & computer choices
-      - Result (winner)
-      - Button to keep playing / start new game
+    - ✅Result screen
+      - ✅User & computer choices
+      - ✅Result (winner)
+      - ✅Button to keep playing / start new game
 - CSS
   - ✅Header
-  - Start screen
-  - Game screen
-    - Round & score
+  - ✅Start screen
+  - ✅Game screen
+    - ✅Round & score
     - ✅Choice screen
-    - Result screen
+    - ✅Result screen
 - JS
   - Remove playing 5 rounds
   - Add event listeners to buttons

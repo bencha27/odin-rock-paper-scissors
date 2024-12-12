@@ -150,3 +150,35 @@ THE COMPUTER WINS.`);
 }
 
 // playGame();
+
+
+const startScreen = document.querySelector("#start-screen");
+const scoreDisplay = document.querySelector("#display-score-container");
+const choiceScreen = document.querySelector("#user-choice-container");
+const resultScreen = document.querySelector("#display-result-container");
+
+// Display start screen
+function displayStartScreen() {
+  startScreen.style.display = "flex";
+  scoreDisplay.style.display = "none";
+  choiceScreen.style.display = "none";
+  resultScreen.style.display = "none";
+}
+
+// Display game screen - choice
+function displayChoiceScreen() {
+  startScreen.style.display = "none";
+  scoreDisplay.style.display = "flex";
+  choiceScreen.style.display = "block";
+  resultScreen.style.display = "none";
+}
+
+// Display game screen - result
+function displayResultScreen() {
+  startScreen.style.display = "none";
+  scoreDisplay.style.display = "flex";
+  choiceScreen.style.display = "none";
+  resultScreen.style.display = "block";
+}
+
+displayStartScreen();
