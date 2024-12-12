@@ -43,7 +43,7 @@
 
 ## Version 2
 
-- HTML
+- ✅HTML
   - ✅Header
   - ✅Start screen
     - ✅Button to start game
@@ -55,19 +55,34 @@
       - ✅User & computer choices
       - ✅Result (winner)
       - ✅Button to keep playing / start new game
-- CSS
+- ✅CSS
   - ✅Header
   - ✅Start screen
   - ✅Game screen
     - ✅Round & score
     - ✅Choice screen
     - ✅Result screen
-- JS
-  - Remove playing 5 rounds
-  - Add event listeners to buttons
-    - `playRound`
-    - `playerSelection`
-  - Change `console.log` to DOM methods
-  - Display the running score
-  - End game at 5 points
-  - Announce the winner
+- ✅JS
+  - ✅Functions to display screen
+    - ✅Start screen
+    - ✅Game screen - choice
+    - ✅Game screen - result
+  - On load
+    - ✅Display start screen
+    - ✅Reset score
+  - Start screen
+    - ✅Start game button
+      - ✅Display choice screen
+      - ✅Call `startGame`
+  - ✅Choice screen
+    - ✅Add event listeners to buttons
+    - ✅Determine result
+  - Result screen
+    - ✅Display choices
+    - ✅Display result
+    - ✅Display updated score
+    - ✅Continue button
+  - ✅Game end
+    - ✅If either score reaches 5
+    - ✅Display "GAME OVER" message
+    - ✅Update button to start new game

@@ -1,98 +1,153 @@
-// Gameplay
+// Control display
+const startScreen = document.querySelector("#start-screen");
+const scoreDisplay = document.querySelector("#display-score-container");
+const choiceScreen = document.querySelector("#user-choice-container");
+const resultScreen = document.querySelector("#display-result-container");
 
-  // Variables
+  // Display start screen
+function displayStartScreen() {
+  startScreen.style.display = "flex";
+  scoreDisplay.style.display = "none";
+  choiceScreen.style.display = "none";
+  resultScreen.style.display = "none";
+}
+
+  // Display choice screen
+function displayChoiceScreen() {
+  startScreen.style.display = "none";
+  scoreDisplay.style.display = "flex";
+  choiceScreen.style.display = "block";
+  resultScreen.style.display = "none";
+}
+
+  // Display result screen
+function displayResultScreen() {
+  startScreen.style.display = "none";
+  scoreDisplay.style.display = "flex";
+  choiceScreen.style.display = "none";
+  resultScreen.style.display = "block";
+}
+
+
+
+
+// On load
+displayStartScreen();
+
+const startButton = document.querySelector("#start-button");
+startButton.addEventListener("click", startGame);
+
 let gameInProgress = false;
 let round = 0;
 let computerScore = 0;
 let humanScore = 0;
 
-  // Get computer choice
+const humanScoreElement = document.querySelector("#user-score");
+const computerScoreElement = document.querySelector("#computer-score");
+
+function startGame() {
+  gameInProgress = true;
+  humanScore = 0;
+  computerScore = 0;
+
+  humanScoreElement.textContent = humanScore;
+  computerScoreElement.textContent = computerScore;
+  continueButton.textContent = "Next round";
+  displayChoiceScreen();
+}
+
+
+
+
+// Choice screen
+const choiceButtons = document.querySelector("#choice-buttons-container");
+choiceButtons.addEventListener("click", (event) => {
+  playRound(event.target.value);
+});
+
+function playRound(choice) {
+  let currentHumanChoice = choice;
+  let currentComputerChoice = getComputerChoice();
+  
+  humanChoiceElement.textContent = getEmoji(currentHumanChoice);
+  computerChoiceElement.textContent = getEmoji(currentComputerChoice);
+  
+  let currentResult = getResult(currentHumanChoice, currentComputerChoice);
+
+  switch (currentResult) {
+    case "draw": 
+      resultElement.textContent = "It's a draw";
+      break;
+    case "win": 
+      resultElement.textContent = "You won";
+      humanScore++;
+      humanScoreElement.textContent = humanScore;
+      break;
+      default: 
+      resultElement.textContent = "You lost";
+      computerScore++;
+      computerScoreElement.textContent = computerScore;
+  }
+  
+  if (humanScore === 5 || computerScore === 5) endGame();
+
+  displayResultScreen();
+}
+
 function getComputerChoice() {
   let randomNumber = Math.floor(Math.random() * 3) + 1;
   let computerChoice;
 
   switch (randomNumber) {
     case 1: 
-      computerChoice = "Rock";
+      computerChoice = "rock";
       break;
     case 2:
-      computerChoice = "Paper";
+      computerChoice = "paper";
       break;
     default: 
-      computerChoice = "Scissors";
+      computerChoice = "scissors";
   }
 
   return computerChoice;
 }
 
-  // Get user choice
-function getHumanChoice() {
-  let humanChoice = prompt(`ROUND ${round}
+function getEmoji(choice) {
+  let emoji;
 
-Choose rock, paper, or scissors.`);
-
-  if (humanChoice === null) {
-    return gameInProgress = false;
+  switch (choice) {
+    case "rock": 
+      emoji = "✊";
+      break;
+    case "paper": 
+      emoji = "🖐️";
+      break;
+    default: 
+      emoji = "✌️";
   }
 
-  switch (humanChoice.trim().toLowerCase()) {
-    case "rock":
-      humanChoice = "Rock";
-      break;
-    case "paper":
-      humanChoice = "Paper";
-      break;
-    case "scissors":
-      humanChoice = "Scissors";
-    default:
-      alert("Invalid choice. Please try again.");
-      humanChoice = getHumanChoice();
-  }
-
-  return humanChoice;
+  return emoji;
 }
 
-  // Play a single round
-function playRound() {
-  let currentHumanChoice = getHumanChoice();
-  let currentComputerChoice = getComputerChoice();
-
-  if (!currentHumanChoice) {
-    return;
-  }
-  console.log(`You chose ${currentHumanChoice}. The computer chose ${currentComputerChoice}.`);
-  
-  let currentResult = getResult(currentHumanChoice, currentComputerChoice);
-  
-  if (currentResult === "draw") {
-    console.log("It's a draw. Go again.");
-    alert("It's a draw. Go again.");
-    playRound();
-  } else {
-    displayResult(currentResult);
-    displayScore();
-  }
-}
-
-function getResult(myChoice, opponentChoice) {
+function getResult(humanChoice, computerChoice) {
   let result;
 
-  if (opponentChoice === myChoice) {
+  if (computerChoice === humanChoice) {
     result = "draw";
-  } else if (opponentChoice === "Rock") {
-    if (myChoice === "Paper") {
+  } else if (computerChoice === "rock") {
+    if (humanChoice === "paper") {
       result = "win";
     } else {
       result = "lose";
     }
-  } else if (opponentChoice === "Paper") {
-    if (myChoice === "Scissors") {
+  } else if (computerChoice === "paper") {
+    if (humanChoice === "scissors") {
       result = "win";
     } else {
       result = "lose";
     }
   } else {
-    if (myChoice === "Rock") {
+    if (humanChoice === "rock") {
       result = "win";
     } else {
       result = "lose";
@@ -102,83 +157,20 @@ function getResult(myChoice, opponentChoice) {
   return result;
 }
 
-function displayResult(result) {
-  switch (result) {
-    case "win":
-      console.log("You won!");
-      humanScore++;
-      break;
-    case "lose":
-      console.log("You lost.");
-      computerScore++;
-      break;
-    default:
-      console.log("It's a draw.");
-  }
+
+
+
+// Result screen
+const humanChoiceElement = document.querySelector("#display-user-choice");
+const computerChoiceElement = document.querySelector("#display-computer-choice");
+const resultElement = document.querySelector("#display-result");
+const continueButton = document.querySelector("#continue-button");
+
+continueButton.addEventListener("click", displayChoiceScreen);
+
+function endGame() {
+  resultElement.textContent += ". GAME OVER";
+  continueButton.textContent = "New game";
+  continueButton.removeEventListener("click", displayChoiceScreen);
+  continueButton.addEventListener("click", startGame);
 }
-
-function displayScore() {
-  console.log(`Score - You: ${humanScore}, Computer: ${computerScore}`);
-}
-
-  // Play a game
-function playGame() {
-  if (confirm("Let's play Rock, Paper, Scissors!")) {
-    gameInProgress = true;
-  }
-  
-  while (gameInProgress && round < 5) {
-    round++;
-    console.log(`
-ROUND ${round}`);
-    playRound();
-  }
-
-  if (!gameInProgress) {
-    console.log("GAME OVER");
-    return console.log(`Refresh the page to start a new game.`);
-  }
-
-  if (humanScore > computerScore) {
-    console.log(`
-YOU WIN!`);
-  } else if (humanScore < computerScore) {
-    console.log(`
-THE COMPUTER WINS.`);
-  }
-  console.log(`Refresh the page to start a new game.`);
-}
-
-// playGame();
-
-
-const startScreen = document.querySelector("#start-screen");
-const scoreDisplay = document.querySelector("#display-score-container");
-const choiceScreen = document.querySelector("#user-choice-container");
-const resultScreen = document.querySelector("#display-result-container");
-
-// Display start screen
-function displayStartScreen() {
-  startScreen.style.display = "flex";
-  scoreDisplay.style.display = "none";
-  choiceScreen.style.display = "none";
-  resultScreen.style.display = "none";
-}
-
-// Display game screen - choice
-function displayChoiceScreen() {
-  startScreen.style.display = "none";
-  scoreDisplay.style.display = "flex";
-  choiceScreen.style.display = "block";
-  resultScreen.style.display = "none";
-}
-
-// Display game screen - result
-function displayResultScreen() {
-  startScreen.style.display = "none";
-  scoreDisplay.style.display = "flex";
-  choiceScreen.style.display = "none";
-  resultScreen.style.display = "block";
-}
-
-displayStartScreen();

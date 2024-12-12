@@ -78,6 +78,7 @@ header {
   margin-bottom: 2rem;
   padding: 1rem;
   background-color: darkgray;
+  border-radius: 1rem;
 
   & h2 {
     font-size: 2rem;
@@ -86,6 +87,10 @@ header {
 
   & h3 {
     font-size: 1.5rem;
+  }
+
+  & span {
+    font-weight: bold;
   }
 }
 
@@ -101,7 +106,7 @@ header {
     margin-bottom: 2rem;
   }
 
-  & #buttons-container {
+  & #choice-buttons-container {
     display: flex;
     justify-content: center;
     gap: 3rem;
@@ -136,7 +141,8 @@ header {
       margin-bottom: 1rem;
     }
     
-    & #display-choice {
+    & #display-user-choice, 
+    #display-computer-choice {
       font-size: 5rem;
       border-radius: 1rem;
       text-align: center;
