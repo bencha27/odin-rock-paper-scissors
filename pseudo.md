@@ -43,9 +43,25 @@
 
 ## Version 2
 
-- HTML & CSS
-  - Create buttons for user choice
-  - Create a `div` for displaying results
+- HTML
+  - ✅Header
+  - Start screen
+    - Button to start game
+  - ✅Game screen
+    - ✅Round & score
+    - ✅Choice screen
+      - ✅Buttons for user choice
+    - Result screen
+      - User & computer choices
+      - Result (winner)
+      - Button to keep playing / start new game
+- CSS
+  - ✅Header
+  - Start screen
+  - Game screen
+    - Round & score
+    - ✅Choice screen
+    - Result screen
 - JS
   - Remove playing 5 rounds
   - Add event listeners to buttons

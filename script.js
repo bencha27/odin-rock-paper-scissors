@@ -149,4 +149,4 @@ THE COMPUTER WINS.`);
   console.log(`Refresh the page to start a new game.`);
 }
 
-playGame();
+// playGame();
