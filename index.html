@@ -4,10 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock, Paper, Scissors</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <h1>Rock, Paper, Scissors!</h1>
-  <p>Open the Console in the browser Developer Tools to play.</p>
-  <script src="script.js"></script>
+  
+  <div id="buttons-container">
+    <button type="button">Rock</button>
+    <button type="button">Paper</button>
+    <button type="button">Scissors</button>
+  </div>
+
+  <div id="display-container">
+    <!-- Heading (round #) -->
+    <h2></h2>
+
+    <!-- Choices (user & computer) -->
+    <div id="display-choices-container">
+      <div id="display-user-choice-container">
+        <h3>You</h3>
+        <div id="display-user-choice"></div>
+      </div>
+
+      <div id="display-computer-choice-container">
+        <h3>Computer</h3>
+        <div id="display-computer-choice"></div>
+      </div>
+    </div>
+    
+    <!-- Result & score -->
+    <div id="display-result-container">
+      <div id="display-result"></div>
+      
+      <div id="display-score-container">
+        <h2>Score</h2>
+
+        <div id="display-user-score-container">
+          <h3>You</h3>
+        </div>
+
+        <div id="display-computer-score-container">
+          <h3>Computer</h3>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
