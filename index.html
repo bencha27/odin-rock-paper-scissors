@@ -8,45 +8,57 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <h1>Rock, Paper, Scissors!</h1>
+  <div id="game-container">
+    <h1>Rock, Paper, Scissors!</h1>
   
-  <div id="buttons-container">
-    <button type="button">Rock</button>
-    <button type="button">Paper</button>
-    <button type="button">Scissors</button>
-  </div>
-
-  <div id="display-container">
-    <!-- Heading (round #) -->
-    <h2></h2>
-
-    <!-- Choices (user & computer) -->
-    <div id="display-choices-container">
-      <div id="display-user-choice-container">
-        <h3>You</h3>
-        <div id="display-user-choice"></div>
-      </div>
-
-      <div id="display-computer-choice-container">
-        <h3>Computer</h3>
-        <div id="display-computer-choice"></div>
-      </div>
+    <!-- Start screen -->
+    <div id="start-screen">
+      <button id="start-button">Let's play!</button>
     </div>
     
-    <!-- Result & score -->
-    <div id="display-result-container">
-      <div id="display-result"></div>
+  
+    <!-- Game screen -->
+    
+    <div id="display-score-container">
+      <h2>Score</h2>
       
-      <div id="display-score-container">
-        <h2>Score</h2>
-
-        <div id="display-user-score-container">
+      <div id="display-user-score-container">
+        <h3>You</h3>
+      </div>
+      
+      <div id="display-computer-score-container">
+        <h3>Computer</h3>
+      </div>
+    </div>
+  
+    <h2>Round</h2>
+  
+    <div id="user-choice-container">
+      <h3>Make your choice</h3>
+      <div id="buttons-container">
+        <button type="button">Rock</button>
+        <button type="button">Paper</button>
+        <button type="button">Scissors</button>
+      </div>
+    </div>
+  
+    <div id="display-result-container">
+      <!-- Choices (user & computer) -->
+      <div id="display-choices-container">
+        <div id="display-user-choice-container">
           <h3>You</h3>
+          <div id="display-user-choice"></div>
         </div>
-
-        <div id="display-computer-score-container">
+  
+        <div id="display-computer-choice-container">
           <h3>Computer</h3>
+          <div id="display-computer-choice"></div>
         </div>
+      </div>
+      
+      <!-- Result & score -->
+      <div id="display-result-container">
+        <div id="display-result"></div>
       </div>
     </div>
   </div>
